@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mr. Puffs Deals | Bramalea City Center</title>
-    <!-- Premium Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
@@ -40,7 +39,7 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3, .btn-order, .btn-back {
+        h1, h2, h3, .btn-order, .btn-back, .nav-link {
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
@@ -57,6 +56,14 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid rgba(255, 122, 0, 0.1);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
         header h1 {
@@ -75,6 +82,41 @@
             border-radius: 30px;
             font-weight: 700;
             letter-spacing: 0.2px;
+            white-space: nowrap;
+        }
+
+        /* Premium Social & Navigation Links */
+        .header-links {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-link {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 122, 0, 0.06);
+            border: 1px solid rgba(255, 122, 0, 0.12);
+            white-space: nowrap;
+        }
+
+        .nav-link:hover {
+            background: var(--primary-gradient);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 12px rgba(255, 98, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .link-icon {
+            flex-shrink: 0;
         }
 
         /* Hero Section with Live Background Video */
@@ -353,6 +395,28 @@
 
         /* Responsive Breakpoints */
         @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                justify-content: center;
+                flex-direction: column;
+                gap: 12px;
+            }
+            .header-left {
+                flex-direction: column;
+                gap: 6px;
+            }
+            .header-links {
+                justify-content: center;
+                width: 100%;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .nav-link {
+                font-size: 12px;
+                padding: 6px 12px;
+                flex-grow: 1;
+                justify-content: center;
+            }
             .hero {
                 padding: 80px 20px 100px 20px;
             }
@@ -371,15 +435,29 @@
 </head>
 <body>
 
-    <!-- Header Navigation -->
     <header>
-        <h1>Mr. Puffs</h1>
-        <div class="location-tag">📍 Bramalea City Center</div>
+        <div class="header-left">
+            <h1>Mr. Puffs</h1>
+            <div class="location-tag">📍 Bramalea City Center</div>
+        </div>
+        
+        <div class="header-links">
+            <a href="https://maps.app.goo.gl/SS2pn5Ke5xSdVbSg9?g_st=iw" target="_blank" class="nav-link">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="link-icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Directions
+            </a>
+            <a href="https://www.instagram.com/mrpuffs_bramalea_brampton?igsh=dnVjbHVwbTU3cGU=" target="_blank" class="nav-link">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="link-icon"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                Instagram
+            </a>
+            <a href="https://www.google.com/maps/place/Mr.+Puffs/@43.71552,-79.7214,17z/data=!3m1!4b1!4m6!3m5!1s0x882b3da88b27a8c1:0x97f9a6948b8f1e29!8m2!3d43.71552!4d-79.7214!16s%2Fg%2F11kqshbl3y?entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="nav-link">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="link-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                Google Review
+            </a>
+        </div>
     </header>
 
-    <!-- Animated Video Hero Layout -->
     <section class="hero">
-        <!-- Background loop video from public library -->
         <video autoplay loop muted playsinline class="hero-video">
             <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-gold-particles-background-34380-large.mp4" type="video/mp4">
         </video>
@@ -391,10 +469,8 @@
         </div>
     </section>
 
-    <!-- Responsive Cards Display -->
     <section class="deals-container">
         
-        <!-- Box Item 1 -->
         <div class="deal-card">
             <div class="image-wrapper">
                 <span class="promo-badge">Limited Time Only</span>
@@ -407,7 +483,6 @@
             </div>
         </div>
 
-        <!-- Box Item 2 -->
         <div class="deal-card">
             <div class="image-wrapper">
                 <span class="promo-badge badge-alt">Best Value Combo</span>
@@ -420,17 +495,14 @@
             </div>
         </div>
 
-
     </section>
 
-    <!-- Animated View Offer Modal -->
     <div id="offerModal" class="modal">
         <span class="close-btn" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="fullOfferImage" alt="Full Deal Details Image">
         <button class="btn-back" onclick="closeModal()">← Go Back</button>
     </div>
 
-    <!-- Layout & Celebration Animation Engine -->
     <script>
         // 1. Gift Box Foil Celebration Effect on Page Load
         document.addEventListener('DOMContentLoaded', () => {
